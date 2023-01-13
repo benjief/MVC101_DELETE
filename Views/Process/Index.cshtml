@@ -1,0 +1,31 @@
+﻿@model System.Diagnostics.Process[]
+
+@{
+    ViewData["Title"] = "Processes"; // keep as "Title"
+}
+
+<div>
+    <h2>@ViewData["Title"]</h2>
+    <ul>
+        @foreach (var item in Model)
+        {
+            if (item.ProcessName.Trim().Length > 0)
+            {
+                <li>
+                    <a asp-controller="Process" asp-action="Display"
+                asp-route-id="@item.Id">@item.ProcessName</a>
+                </li>
+            }
+        }
+    </ul>
+</div>
+
+@* <div class="text-center" style="color: tomato">
+    <h1>Welcome to COMP 4870</h1>
+    <ul> can mix Razor syntax with html
+    @foreach (var item in days!) // note the !
+    {
+    <li>@item</li>
+    }
+    </ul>
+    </div> *@

@@ -4,8 +4,8 @@
     string[]? days = ViewData["days"] as string[]; // note the ?
 }
 
-<div class="text-center">
-    <h1 class="display-4" style="color: tomato">Welcome to COMP 4870</h1>
+<div style="color: tomato">
+    <h1 class="display-4">Welcome to COMP 4870</h1>
     <ul> @* can mix Razor syntax with html *@
         @foreach (var item in days!) // note the !
         {
