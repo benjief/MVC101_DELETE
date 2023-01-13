@@ -1,0 +1,15 @@
+﻿@{
+    ViewData["Title"] = "Home Page"; // keep as "Title"
+    @* string[] days = { "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun" }; // don't put data in View *@
+    string[]? days = ViewData["days"] as string[]; // note the ?
+}
+
+<div class="text-center">
+    <h1 class="display-4" style="color: tomato">Welcome to COMP 4870</h1>
+    <ul> @* can mix Razor syntax with html *@
+        @foreach (var item in days!) // note the !
+        {
+            <li>@item</li>
+        }
+    </ul>
+</div>

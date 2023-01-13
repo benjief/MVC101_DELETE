@@ -1,0 +1,18 @@
+﻿@model string[]
+@{
+    ViewData["Title"] = "Bogus Page";
+    var date = (System.DateTime)ViewData["Date"]!; /* can retrieve as a ViewData (even though declared
+as a ViewBag in controller) */
+}
+<h1>@ViewData["Title"]</h1>
+
+
+<p>This is my first ASP.NET page authored by @ViewData["author"] on @date.ToShortDateString()</p> @*
+    accessing view data/bag that came from the controller (could also come from a DB) *@
+
+<ul> @* can mix Razor syntax with html *@
+    @foreach (var item in Model) // use Model instead of days
+    {
+        <li>@item</li>
+    }
+</ul>
