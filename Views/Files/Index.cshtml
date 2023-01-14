@@ -1,0 +1,22 @@
+﻿@model string[]
+
+@{
+    ViewData["Title"] = "Text Files"; // keep as "Title"
+}
+
+<div>
+    <h2>@ViewData["Title"]</h2>
+    <ul>
+        @foreach (var item in Model)
+        {
+            int index = item.IndexOf(".txt");
+
+            var filename = System.IO.Path.GetFileName(item);
+
+            <li>
+                <a asp-controller="Files" asp-action="Content"
+                asp-route-id="@filename">@item.Substring(index - 5)</a>
+            </li>
+        }
+    </ul>
+</div>

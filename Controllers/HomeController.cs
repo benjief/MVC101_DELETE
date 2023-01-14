@@ -25,17 +25,17 @@ public class HomeController : Controller
         return View();
     }
 
-    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-    public IActionResult Error()
-    {
-        return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-    }
-
     public IActionResult Bogus()
     {
         string[] days = { "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun" };
         ViewData["author"] = "Benjie Friedman"; // a view data dictionary entry with key author and value your name
         ViewBag.Date = DateTime.Now; // an alternative to ViewData - equivalent to the above line
         return View(days); // need to actually make this view in Views folder - note that you can pass the array to the view as an argument
+    }
+
+    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+    public IActionResult Error()
+    {
+        return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
     }
 }
